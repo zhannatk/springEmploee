@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.prosky.course2.employee.springemployee.Employee;
+import com.prosky.course2.employee.springemployee.model.Employee;
 
 import java.util.List;
 
@@ -43,9 +43,9 @@ public class EmployeeController {
     ) {
         return employeeServiceImpl.removeEmployee(firstName, lastName);
     }
-    // http://localhost:8080/employee/list
+    // http://localhost:8080/employee/printAll
 
-    @GetMapping("/list")
+    @GetMapping("/printAll")
     public List<Employee> getEmployee() {
         return employeeServiceImpl.getEmployeesSet();
     }

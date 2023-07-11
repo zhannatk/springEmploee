@@ -1,6 +1,6 @@
 package com.prosky.course2.employee.springemployee.service;
 
-import com.prosky.course2.employee.springemployee.Employee;
+import com.prosky.course2.employee.springemployee.model.Employee;
 
 import java.util.Collection;
 

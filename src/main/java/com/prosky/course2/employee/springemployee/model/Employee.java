@@ -1,12 +1,12 @@
-package com.prosky.course2.employee.springemployee;
+package com.prosky.course2.employee.springemployee.model;
 
 import java.util.Objects;
 
 public class Employee {
 
+    private final String firstName;
 
     private final String lastName;
-    private final String firstName;
 
 
     @Override
@@ -44,4 +44,7 @@ public class Employee {
         return "lastname: " + lastName +
                 ", firstName: " + firstName;
     }
+
+
+
 }
