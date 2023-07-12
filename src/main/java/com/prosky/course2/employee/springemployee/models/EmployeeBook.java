@@ -2,6 +2,7 @@ package com.prosky.course2.employee.springemployee.models;
 
 import com.prosky.course2.employee.springemployee.Exceptions.EmployeeNotFoundException;
 import com.prosky.course2.employee.springemployee.Exceptions.EmployeeStorageIsFullException;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +24,10 @@ public class EmployeeBook {
     }
 
     public Employee addEmployee(String firstName, String lastName,int salary, int department) {
+        firstName = StringUtils.capitalize(firstName);
+        lastName = StringUtils.capitalize(lastName);
+
+
         if (employeeMap.size() >= MAX_QUANTITY)
             throw new EmployeeStorageIsFullException("Storage is maximum " + MAX_QUANTITY + " employees");
         if (employeeMap.containsKey(makeKey(firstName, lastName)))
@@ -32,15 +37,24 @@ public class EmployeeBook {
         return employee;
     }
 
-    public Employee findEmployee(String firstname, String lastName) {
-        Employee employee = employeeMap.get(makeKey(firstname, lastName));
+
+
+
+    public Employee findEmployee(String firstName, String lastName) {
+        firstName = StringUtils.capitalize(firstName);
+        lastName = StringUtils.capitalize(lastName);
+
+        Employee employee = employeeMap.get(makeKey(firstName, lastName));
         if (employee == null)
             throw new EmployeeNotFoundException("Сотрудник не найден");
         return employee;
     }
 
-    public Employee removeEmployee(String firstname, String lastName) {
-        Employee employee = employeeMap.remove(makeKey(firstname, lastName));
+    public Employee removeEmployee(String firstName, String lastName) {
+        firstName = StringUtils.capitalize(firstName);
+        lastName = StringUtils.capitalize(lastName);
+
+        Employee employee = employeeMap.remove(makeKey(firstName, lastName));
         if (employee == null)
             throw new EmployeeNotFoundException("Сотрудник не найден");
         return employee;

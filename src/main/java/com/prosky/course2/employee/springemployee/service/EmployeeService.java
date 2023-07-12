@@ -13,4 +13,6 @@ public interface EmployeeService {
 
     Employee findEmployee(String firstName, String lastName);
     Collection<Employee> getEmployeesSet();
+
+ void validation(String fn, String ln);
 }
