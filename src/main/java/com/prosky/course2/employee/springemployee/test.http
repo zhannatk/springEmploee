@@ -1,13 +1,11 @@
-http://localhost:8080/employee/add?firstName=Ivan&lastName=Ivanov
-###&department=1&salary=100
 ###
-http://localhost:8080/employee/add?firstName=Petr&lastName=Petrov
-### &department=2&salary=200
+http://localhost:8080/employee/add?firstName=Ivan&lastName=Ivanov&salary=100&department=1
 ###
-http://localhost:8080/employee/add?firstName=Vlad&lastName=Vladov
-###&department=2&salary=200
-http://localhost:8080/employee/add?firstName=ЕЕЕЕ&lastName=ЕЕЕЕЕЕЕЕЕ
-###&department=22&salary=200
+http://localhost:8080/employee/add?firstName=Petr&lastName=Petrov&salary=200&department=1
+###
+http://localhost:8080/employee/add?firstName=Vlad&lastName=Vladov&salary=300&department=2
+###
+http://localhost:8080/employee/add?firstName=ЕЕЕЕ&lastName=ЕЕЕЕЕЕЕЕЕ&salary=400&department=2
 
 ### поиск сотрудника
 http://localhost:8080/employee/find?firstName=Ivan&lastName=Ivanov
@@ -19,14 +17,14 @@ http://localhost:8080/employee/remove?firstName=Ivan&lastName=Ivanov
 http://localhost:8080/employee/printAll
 
 
-### Сотрудника с минимальной зарплатой
-http://localhost:8080/employee/loh
+### Сотрудника с минимальной зарплатой по отделу
+http://localhost:8080/department/min-salary?departmentId=2
 
-### изменить зарплату
-http://localhost:8080/employee/changeSalary?firstName=Ivan&lastName=Ivanov&newSalary=1002
+### Сотрудника с максимальной зарплатой по отделу
+http://localhost:8080/department/max-salary?departmentId=1
 
-### изменить отдел
-http://localhost:8080/employee/changeDepartment?firstName=Ivan&lastName=Ivanov&newDep=33
+### список сотрудников, разбитый по отделам
+http://localhost:8080/department/all
 
-### список сотрудников по отделам
-http://localhost:8080/employee/employeesByDepartments
+### список сотрудников отдела
+http://localhost:8080/department/all?departmentId=3
