@@ -1,0 +1,32 @@
+###
+http://localhost:8080/employee/add?firstName=ivan&lastName=ivanov&salary=100&department=1
+###
+http://localhost:8080/employee/add?firstName=Petr&lastName=Petrov&salary=200&department=1
+###
+http://localhost:8080/employee/add?firstName=Vlad&lastName=Vladov&salary=300&department=2
+###
+http://localhost:8080/employee/add?firstName=ЕЕЕЕ&lastName=ЕЕЕЕЕЕЕЕЕ&salary=400&department=2
+### имя с недопустимыми символами
+http://localhost:8080/employee/add?firstName=ЕЕЕЕ44&lastName=ЕЕЕЕЕЕЕЕЕ&salary=400&department=2
+
+### поиск сотрудника
+http://localhost:8080/employee/find?firstName=ivan&lastName=Ivanov
+
+### удаление сотрудника
+http://localhost:8080/employee/remove?firstName=Ivan&lastName=Ivanov
+
+###Получить список всех сотрудников со всеми имеющимися по ним данными .
+http://localhost:8080/employee/printAll
+
+
+### Сотрудника с минимальной зарплатой по отделу
+http://localhost:8080/department/min-salary?departmentId=2
+
+### Сотрудника с максимальной зарплатой по отделу
+http://localhost:8080/department/max-salary?departmentId=1
+
+### список сотрудников, разбитый по отделам
+http://localhost:8080/department/all
+
+### список сотрудников отдела
+http://localhost:8080/department/all?departmentId=3

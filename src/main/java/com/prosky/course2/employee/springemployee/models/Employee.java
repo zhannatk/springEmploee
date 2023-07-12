@@ -1,12 +1,23 @@
-package com.prosky.course2.employee.springemployee;
+package com.prosky.course2.employee.springemployee.models;
 
 import java.util.Objects;
 
 public class Employee {
 
+    private final String firstName;
 
     private final String lastName;
-    private final String firstName;
+
+    private  int salary;
+
+    private int department;
+    public Employee(String firstName, String lastName, int salary, int department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.department = department;
+    }
+
 
 
     @Override
@@ -22,11 +33,7 @@ public class Employee {
         return Objects.hash(lastName, firstName);
     }
 
-    public Employee(String firstName, String lastName) {
-        this.lastName = lastName;
-        this.firstName = firstName;
 
-    }
 
 
     public String getLastName() {
@@ -39,9 +46,20 @@ public class Employee {
 
     }
 
+    public int getSalary() {
+        return salary;
+    }
+
+    public int getDepartment() {
+        return department;
+    }
+
     @Override
     public String toString() {
         return "lastname: " + lastName +
                 ", firstName: " + firstName;
     }
+
+
+
 }
