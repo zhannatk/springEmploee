@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.prosky.course2.employee.springemployee.Employee;
+import com.prosky.course2.employee.springemployee.models.Employee;
 
 import java.util.List;
 
@@ -18,17 +18,21 @@ public class EmployeeController {
         this.employeeServiceImpl = employeeServiceImpl;
     }
 
-    //http://localhost:8080/employee/add?firstName=Ivan2&lastName=Ivanov
-    //http://localhost:8080/employee/add?firstName=Ivan&lastName=Ivanov
-    //http://localhost:8080/employee/add?firstName=Petr&lastName=Petrov
+    //http://localhost:8080/employee/add?firstName=Ivan2&lastName=Ivanov&salary=100&department=1
+    //http://localhost:8080/employee/add?firstName=Ivan&lastName=Ivanov&salary=200&department=2
+    //http://localhost:8080/employee/add?firstName=Petr&lastName=Petrov&salary=300&department=3
     @GetMapping("/add")
     public Employee addEmployee(@RequestParam("firstName") String firstName,
-                                @RequestParam("lastName") String lastName
+                                @RequestParam("lastName") String lastName,
+                                @RequestParam("salary") int salary,
+                                @RequestParam("department") int department
     ) {
-        return employeeServiceImpl.addEmployee(firstName, lastName);
+        return employeeServiceImpl.addEmployee(firstName, lastName,salary,department);
     }
 
     // http://localhost:8080/employee/find?firstName=Ivan&lastName=Ivanov
+
+    //&salary=100&department=1
     @GetMapping("/find")
     public Employee findEmployee(@RequestParam("firstName") String firstName,
                                  @RequestParam("lastName") String lastName
@@ -43,11 +47,11 @@ public class EmployeeController {
     ) {
         return employeeServiceImpl.removeEmployee(firstName, lastName);
     }
-    // http://localhost:8080/employee/list
+    // http://localhost:8080/employee/printAll
 
-    @GetMapping("/list")
+    @GetMapping("/printAll")
     public List<Employee> getEmployee() {
-        return employeeServiceImpl.getEmployeesSet();
+        return employeeServiceImpl.getEmployeesList();
     }
 
 }
