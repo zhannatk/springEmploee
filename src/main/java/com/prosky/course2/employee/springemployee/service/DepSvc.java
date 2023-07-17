@@ -11,6 +11,8 @@ public interface DepSvc {
 
     //вывести чела с минимальной зарплатой по отделу
     Employee printEmpWithMaxSalaryInDepartment(int   depID);
+    Integer printSumSalaryInDepartment(int   depID);
+
     //вывести список сотрудников из какоего-то  отдела
     List <Employee> printAllEmployeesOfDep(int depID);
     //вывести всех по отделам

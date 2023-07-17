@@ -1,8 +1,10 @@
 package com.prosky.course2.employee.springemployee.models;
 
+import com.prosky.course2.employee.springemployee.Exceptions.EmployeeAlreadyAddedException;
 import com.prosky.course2.employee.springemployee.Exceptions.EmployeeNotFoundException;
 import com.prosky.course2.employee.springemployee.Exceptions.EmployeeStorageIsFullException;
 import org.apache.commons.lang3.StringUtils;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +33,7 @@ public class EmployeeBook {
         if (employeeMap.size() >= MAX_QUANTITY)
             throw new EmployeeStorageIsFullException("Storage is maximum " + MAX_QUANTITY + " employees");
         if (employeeMap.containsKey(makeKey(firstName, lastName)))
-            throw new EmployeeNotFoundException("Такой сотрудник уже имеется");
+            throw new EmployeeAlreadyAddedException("Такой сотрудник уже имеется");
         Employee employee = new Employee(firstName, lastName, salary,  department);
         employeeMap.put(makeKey(firstName, lastName), employee);
         return employee;

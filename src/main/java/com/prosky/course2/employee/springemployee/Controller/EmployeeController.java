@@ -51,7 +51,7 @@ public class EmployeeController {
 
     @GetMapping("/printAll")
     public List<Employee> getEmployee() {
-        return employeeServiceImpl.getEmployeesSet();
+        return employeeServiceImpl.getEmployeesList();
     }
 
 }

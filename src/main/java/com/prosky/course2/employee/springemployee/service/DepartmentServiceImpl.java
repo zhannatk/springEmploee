@@ -7,14 +7,15 @@ import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class DepartmentServiceImpl implements DepSvc{
 
-    EmployeeServiceImpl empSvcImpl;
+    EmployeeService empSvcImpl;
 
-    public DepartmentServiceImpl(EmployeeServiceImpl empSvcImpl) {
+    public DepartmentServiceImpl(EmployeeService empSvcImpl) {
         this.empSvcImpl = empSvcImpl;
     }
 
@@ -23,7 +24,7 @@ public class DepartmentServiceImpl implements DepSvc{
         return empSvcImpl.employeeList().stream()
                 .filter(employee -> employee.getDepartment()==depID)
                 .min(Comparator.comparingInt(Employee::getSalary))
-                .orElseThrow(()-> new EmployeeNotFoundException("минимальную зарпдату найти нельзя, потом учто все ушли на фронт"));
+                .orElseThrow(()-> new EmployeeNotFoundException("минимальную зарплату найти нельзя, потому учто все ушли на фронт"));
 
     }
 
@@ -33,14 +34,23 @@ public class DepartmentServiceImpl implements DepSvc{
         return empSvcImpl.employeeList().stream()
                 .filter(employee -> employee.getDepartment()==depID)
                 .max(Comparator.comparingInt(Employee::getSalary))
-                .orElseThrow(()-> new EmployeeNotFoundException("минимальную зарплату найти нельзя, потом учто все ушли на фронт"));
+                .orElseThrow(()-> new EmployeeNotFoundException("максимальную зарплату найти нельзя, потому учто все ушли на фронт"));
+    }
+
+    @Override
+    public Integer printSumSalaryInDepartment(int depID) {
+        return empSvcImpl.employeeList().stream()
+                .filter(employee -> employee.getDepartment() == depID)
+                .mapToInt(Employee::getSalary)
+                .sum();
+
     }
 
     @Override
     public List<Employee> printAllEmployeesOfDep(int depID) {
-        return empSvcImpl.employeeList().stream()
+        return  empSvcImpl.employeeList().stream()
                 .filter(employee -> employee.getDepartment()==depID)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()) ;
 
     }
 

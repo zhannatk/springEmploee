@@ -14,7 +14,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeBook employeeBook = new EmployeeBook(4);
 
-
+    @Override
     public List<Employee> employeeList(){
         return employeeBook.printEmployeeMap();
     }
@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getEmployeesSet() {
+    public List<Employee> getEmployeesList() {
         return employeeBook.printEmployeeMap();
     }
 
